@@ -9,7 +9,7 @@
 // stand in for /bot and /output:
 //   mkdir -p out && MAKEFUN_BOT_DIR=. MAKEFUN_OUTPUT_DIR=out node main.ts
 
-import { copyFileSync, existsSync, mkdirSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const BOT_DIR = process.env.MAKEFUN_BOT_DIR ?? '/bot';
@@ -19,6 +19,20 @@ const source = join(BOT_DIR, 'POST.json');
 
 if (!existsSync(source)) {
   console.error(`POST.json not found in ${BOT_DIR}; the post's address must be in POST.json before submit.`);
+  process.exit(1);
+}
+
+// The gate reads the address this program copies, so a placeholder or
+// malformed address must fail loudly here instead of reaching the grader.
+const X_STATUS_URL = /^https:\/\/x\.com\/[A-Za-z0-9_]+\/status\/\d+$/;
+let address;
+try {
+  address = JSON.parse(readFileSync(source, 'utf8')).url;
+} catch {
+  address = undefined;
+}
+if (typeof address !== 'string' || !X_STATUS_URL.test(address)) {
+  console.error(`POST.json must name a real X post URL (https://x.com/<handle>/status/<id>); got: ${String(address)}.`);
   process.exit(1);
 }
 

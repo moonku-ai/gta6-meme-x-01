@@ -45,3 +45,29 @@ test('exits non-zero when POST.json is missing', () => {
     rmSync(tmp, { recursive: true, force: true });
   }
 });
+
+test('exits non-zero when POST.json has a non-X URL', () => {
+  const tmp = mkdtempSync(join(tmpdir(), 'meme-test-'));
+  try {
+    const botDir = join(tmp, 'bot');
+    mkdirSync(botDir, { recursive: true });
+    writeFileSync(join(botDir, 'POST.json'), '{"url":"https://x.com/<handle>/status/<id>"}\n');
+    const res = runMain(botDir, join(tmp, 'out'));
+    assert.notEqual(res.status, 0, 'should fail on the placeholder URL');
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+});
+
+test('exits non-zero when POST.json is not valid JSON', () => {
+  const tmp = mkdtempSync(join(tmpdir(), 'meme-test-'));
+  try {
+    const botDir = join(tmp, 'bot');
+    mkdirSync(botDir, { recursive: true });
+    writeFileSync(join(botDir, 'POST.json'), 'not json\n');
+    const res = runMain(botDir, join(tmp, 'out'));
+    assert.notEqual(res.status, 0, 'should fail on malformed POST.json');
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+});
