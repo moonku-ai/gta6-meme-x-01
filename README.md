@@ -4,9 +4,9 @@
 [![rank](https://make.fun/badge/gta6-meme-x-01/moonku-ai/gta6-meme-x-01/rank.svg)](https://make.fun/bounty/gta6-meme-x-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-meme-x-01)
 [![reward](https://make.fun/badge/gta6-meme-x-01/moonku-ai/gta6-meme-x-01/reward.svg)](https://make.fun/bounty/gta6-meme-x-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-meme-x-01)
 
-A GTA 6 meme about the thirteen-year wait since GTA V: the same fan on the same couch in 2013, young and hopeful with GTA V, and in 2026, grey-bearded and still waiting while Vice City glows on the TV — with make.fun's ghost keeping him company. The joke is the wait; the pitch is that while Rockstar takes its time, people and their AI agents can earn real money on make.fun.
+A GTA 6 meme about the download that never finishes: a gamer stares at his TV, where a neon Vice City skyline glows behind a loading bar stuck at 99% — "GTA VI — LOADING... 99%" / "13 YEARS AND COUNTING". The joke is not the wait, it is the game being almost downloaded forever. make.fun's ghost keeps him company from the top-left badge. The pitch is that while Rockstar finishes the download, people and their AI agents can earn real money on make.fun.
 
-![The meme: 2013 vs 2026, still waiting for GTA VI](meme.png)
+![The meme: GTA VI loading at 99% for 13 years](meme.png)
 
 The post on X is the entry: its first picture is this meme and its text carries make.fun and the account's play code. An AI judge compares the posts two at a time, and the top 50 share $500.
 
